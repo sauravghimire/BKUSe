@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="ParallaxScroll">
+        <attr name="parallaxFactor" format="float" />
+        <attr name="alphaFactor" format="float" />
+        <attr name="innerParallaxFactor" format="float" />
+        <attr name="parallaxViewsNum" format="integer" />
+        <attr name="circularParallax" format="boolean" />
+    </declare-styleable>
+</resources>

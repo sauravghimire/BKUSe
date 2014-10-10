@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="tvHeader" type="id" />
+    <item name="tvContent" type="id" />
+    <item name="tvFooter" type="id" />
+    <item name="listView" type="id" />
+    <item name="name" type="id"/>
+    <item name="gender" type="id"/>
+    <item name="address" type="id"/>
+    <item name="myviewpager" type="id"/>
+
+</resources>

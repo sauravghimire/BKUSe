@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/footerView"
+    android:layout_width="match_parent"
+    android:layout_height="48dp"
+    android:background="#AAAAAA"
+    android:orientation="horizontal"
+    android:paddingTop="4dp">
+
+    <ImageButton
+        android:id="@+id/callButton"
+        style="@style/footer_button"
+        android:src="@drawable/abc_ic_go"
+        android:visibility="gone" />
+
+    <include
+        android:id="@+id/sep1"
+        layout="@layout/vertical_separater"
+        android:visibility="gone" />
+
+    <ImageButton
+        android:id="@+id/mailButton"
+        style="@style/footer_button"
+        android:src="@drawable/abc_ic_clear" />
+
+    <include
+        android:id="@+id/sep2"
+        layout="@layout/vertical_separater" />
+
+    <ImageButton
+        android:id="@+id/ratingButton"
+        style="@style/footer_button"
+        android:src="@drawable/abc_ic_search" />
+
+    <include layout="@layout/vertical_separater" />
+
+    <ImageButton
+        android:id="@+id/likeButton"
+        style="@style/footer_button"
+        android:src="@drawable/abc_ic_voice_search" />
+
+    <include layout="@layout/vertical_separater" />
+
+    <ImageButton
+        android:id="@+id/shareButton"
+        style="@style/footer_button"
+        android:src="@drawable/abc_ic_go" />
+
+    <include layout="@layout/vertical_separater" />
+
+    <ImageButton
+        android:id="@+id/watchlistButton"
+        style="@style/footer_button"
+        android:src="@drawable/abc_ic_menu_share_holo_dark" />
+
+    <include layout="@layout/vertical_separater" />
+
+    <ImageButton
+        android:id="@+id/reportButton"
+        style="@style/footer_button"
+        android:src="@drawable/abc_ic_clear" />
+
+</LinearLayout>
