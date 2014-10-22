@@ -1,6 +1,7 @@
 package com.example.saurav.bkuse;
 
 import android.graphics.Bitmap;
+import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v4.view.PagerAdapter;
@@ -10,6 +11,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
@@ -26,7 +28,7 @@ import butterknife.ButterKnife;
 import butterknife.InjectView;
 
 
-public class MyActivity extends ActionBarActivity {
+public class MyActivity extends ActionBarActivity implements AdapterView.OnItemClickListener{
     CustomScrollView customScrollView;
     @InjectView(R.id.viewPagerCheck)
     ViewPager viewPagerCheck;
@@ -40,6 +42,47 @@ public class MyActivity extends ActionBarActivity {
     private DisplayImageOptions displayImageOptions;
     String imageUri="";
     ImageLoadingListener imageLoadingListener;
+    private HorizontalListView mHlvCustomList;
+
+    private CustomData[] mCustomData = new CustomData[] {
+            new CustomData(Color.RED, "Red"),
+            new CustomData(Color.DKGRAY, "Dark Gray"),
+            new CustomData(Color.GREEN, "Green"),
+            new CustomData(Color.LTGRAY, "Light Gray"),
+            new CustomData(Color.WHITE, "White"),
+            new CustomData(Color.RED, "Red"),
+            new CustomData(Color.BLACK, "Black"),
+            new CustomData(Color.CYAN, "Cyan"),
+            new CustomData(Color.DKGRAY, "Dark Gray"),
+            new CustomData(Color.GREEN, "Green"),
+            new CustomData(Color.RED, "Red"),
+            new CustomData(Color.LTGRAY, "Light Gray"),
+            new CustomData(Color.WHITE, "White"),
+            new CustomData(Color.BLACK, "Black"),
+            new CustomData(Color.CYAN, "Cyan"),
+            new CustomData(Color.DKGRAY, "Dark Gray"),
+            new CustomData(Color.GREEN, "Green"),
+            new CustomData(Color.LTGRAY, "Light Gray"),
+            new CustomData(Color.RED, "Red"),
+            new CustomData(Color.WHITE, "White"),
+            new CustomData(Color.DKGRAY, "Dark Gray"),
+            new CustomData(Color.GREEN, "Green"),
+            new CustomData(Color.LTGRAY, "Light Gray"),
+            new CustomData(Color.WHITE, "White"),
+            new CustomData(Color.RED, "Red"),
+            new CustomData(Color.BLACK, "Black"),
+            new CustomData(Color.CYAN, "Cyan"),
+            new CustomData(Color.DKGRAY, "Dark Gray"),
+            new CustomData(Color.GREEN, "Green"),
+            new CustomData(Color.LTGRAY, "Light Gray"),
+            new CustomData(Color.RED, "Red"),
+            new CustomData(Color.WHITE, "White"),
+            new CustomData(Color.BLACK, "Black"),
+            new CustomData(Color.CYAN, "Cyan"),
+            new CustomData(Color.DKGRAY, "Dark Gray"),
+            new CustomData(Color.GREEN, "Green"),
+            new CustomData(Color.LTGRAY, "Light Gray")
+    };
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -49,6 +92,7 @@ public class MyActivity extends ActionBarActivity {
         getSupportActionBar().setBackgroundDrawable(actionBarDrawable);
         ButterKnife.inject(this);
         customScrollView = (CustomScrollView) findViewById(R.id.scroll_view_content);
+        mHlvCustomList = (HorizontalListView) findViewById(R.id.hlvCustomList);
 
         DisplayImageOptions options = new DisplayImageOptions.Builder()
                 .cacheInMemory(true).build();
@@ -59,6 +103,9 @@ public class MyActivity extends ActionBarActivity {
 
         ImageLoader.getInstance().init(config);
 
+        setupCustomLists();
+        mHlvCustomList.setOnItemClickListener(this);
+
         customScrollView.setmActionBar(getSupportActionBar());
         customScrollView.setmBackgroundDrawable(actionBarDrawable);
         customScrollView.setmRelativeLayout(scrollViewHeader);
@@ -66,6 +113,19 @@ public class MyActivity extends ActionBarActivity {
 
         myPagerAdapter = new MyPagerAdapter();
         viewPagerCheck.setAdapter(myPagerAdapter);
+    }
+
+    private void setupCustomLists() {
+        // Make an array adapter using the built in android layout to render a list of strings
+        CustomArrayAdapter adapter = new CustomArrayAdapter(this, mCustomData);
+
+        // Assign adapter to HorizontalListView
+        mHlvCustomList.setAdapter(adapter);
+    }
+
+    @Override
+    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+        Toast.makeText(this,"Item Clicked",Toast.LENGTH_SHORT).show();
     }
 
     private class MyPagerAdapter extends PagerAdapter {
